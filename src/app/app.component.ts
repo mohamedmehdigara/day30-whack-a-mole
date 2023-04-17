@@ -1,10 +1,21 @@
+// app.component.ts
+
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: '<app-mole></app-mole>',
+  styles: [`
+    :host {
+      display: block;
+    }
+  `]
 })
 export class AppComponent {
-  title = 'day30-whack-a-mole';
+  title = 'Day30 Wrack a mole';
+
+  constructor(titleService: Title) {
+    titleService.setTitle(this.title);
+  }
 }
